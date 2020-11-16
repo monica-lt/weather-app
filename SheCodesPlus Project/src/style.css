@@ -1,0 +1,26 @@
+body {
+  margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+form {
+  text-align: right;
+  margin: 10px;
+}
+h2 {
+  font-size: 30px;
+}
+h5.card-title {
+  text-align: center;
+}
+p.card-text {
+  text-align: center;
+  font-size: 15px;
+}
+div.card.weather-app {
+  padding: 10px;
+}
+span.units {
+  font-size: 12px;
+  position: relative;
+  bottom: 20px;
+}
