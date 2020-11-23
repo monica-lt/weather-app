@@ -55,7 +55,7 @@ function search(city) {
 function showTemperature(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#wind-speed").innerHTML = response.data.wind.speed;
 }
