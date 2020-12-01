@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -41,9 +42,6 @@ function formatDate(date) {
   }
   return `${day} ${hour}:${minutes}`;
 }
-let currentTime = new Date();
-let dateElement = document.querySelector("#current-time");
-dateElement.innerHTML = formatDate(currentTime);
 
 function search(city) {
   let apiKey = "fd8282cd066128b6757ea2360177d1d2";
@@ -58,6 +56,7 @@ function showTemperature(response) {
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#wind-speed").innerHTML = response.data.wind.speed;
+  document.querySelector("#current-time").innerHTML = formatDate(response.data.dt * 1000);
 }
 function searchCity(event) {
   event.preventDefault();
