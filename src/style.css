@@ -29,3 +29,6 @@ span.units {
   position: relative;
   bottom: 20px;
 }
+#weather {
+  padding: 0;
+}

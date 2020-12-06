@@ -20,15 +20,15 @@
       </form>
       <span class="time-update">Last Updated <span id="current-time">-</span></span>
       <h2 class="current-city"><span id="current-city">-</span></h2>
-      <div class="row">
-        <div class="col-sm-3">
+      <div class="row" id="main-weather">
+        <div class="col-sm-3" id="icon">
           <div class="card text-white border-0">
-            <img src="Images/partly-cloudy.jpg" class="card-img" alt="weather-icon">
+            <img src="Images/partly-cloudy.jpg" class="card-img" alt="weather-icon" id="weather-icon">
             <div class="card-img-overlay">
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" id="weather">
           <div class="card border-0">
             <div class="card-body">
               <h1 class="card-title"><span class="temperature" id="temperature">-</span><span class="units" id="units"><a href="#" id="fahrenheit-link">°F</a>|<a href="#" id="celsius-link">°C</a></span></h1>
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-5" id="weather-details">
           <div class="card border-0">
             <div class="card-body">
               <p class="card-text-main"><span id="precipitation"></span><br />Humidity: <span id="humidity">-</span>%<br />Wind: ENE <span id="wind-speed">-</span></p>
@@ -45,7 +45,7 @@
         </div>
       </div>
       <hr />
-      <div class="card-group">
+      <div class="card-group" id="weather-forecast">
         <div class="card border-0">
           <h5 class="card-title">SAT</h5>
           <img src="Images/partly-cloudy.jpg" class="card-img-top" alt="weather-icon">

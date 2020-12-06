@@ -57,6 +57,8 @@ function showTemperature(response) {
   document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#wind-speed").innerHTML = response.data.wind.speed;
   document.querySelector("#current-time").innerHTML = formatDate(response.data.dt * 1000);
+  document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  document.querySelector("#weather-icon").setAttribute("alt", response.data.weather[0].description);
 }
 function searchCity(event) {
   event.preventDefault();
