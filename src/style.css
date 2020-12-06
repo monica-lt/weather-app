@@ -21,7 +21,11 @@ p.card-text {
   text-align: center;
   font-size: 15px;
 }
-div.card.weather-app {
+div.weather-app-wrapper {
+  max-width: 525px;
+  margin: 0 auto;
+}
+div.weather-app {
   padding: 10px;
 }
 span.units {
