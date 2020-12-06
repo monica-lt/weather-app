@@ -43,3 +43,6 @@ span.units {
 #weather {
   padding: 0;
 }
+#weather-description {
+  text-transform: capitalize;
+}
