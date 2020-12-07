@@ -1,6 +1,7 @@
 body {
   margin-top: 20px;
   font-family: "Montserrat", sans-serif;
+  background-color: rgb(5, 34, 61);
 }
 form {
   text-align: right;
@@ -32,6 +33,9 @@ span.units {
   font-size: 12px;
   position: relative;
   bottom: 20px;
+}
+p.footer {
+  color: white;
 }
 .weather-temperature .active {
   color: black;
