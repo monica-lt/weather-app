@@ -43,13 +43,54 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minutes}`;
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hour}:${minutes}`;
+}
+
 function search(city) {
   let apiKey = "fd8282cd066128b6757ea2360177d1d2";
   let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 
-  
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast(response) {
+  document.querySelector("#hour-zero").innerHTML = formatHours(response.data.list[0].dt * 1000);
+  document.querySelector("#temp-zero").innerHTML = Math.round(response.data.list[0].main.temp);
+  document.querySelector("#weather-icon-zero").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`);
+  document.querySelector("#weather-icon-zero").setAttribute("alt", response.data.list[0].weather[0].description);
+
+  document.querySelector("#hour-one").innerHTML = formatHours(response.data.list[1].dt * 1000);
+  document.querySelector("#temp-one").innerHTML = Math.round(response.data.list[1].main.temp);
+  document.querySelector("#weather-icon-one").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.list[1].weather[0].icon}@2x.png`);
+  document.querySelector("#weather-icon-one").setAttribute("alt", response.data.list[1].weather[0].description);
+
+  document.querySelector("#hour-two").innerHTML = formatHours(response.data.list[2].dt * 1000);
+  document.querySelector("#temp-two").innerHTML = Math.round(response.data.list[2].main.temp);
+  document.querySelector("#weather-icon-two").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.list[2].weather[0].icon}@2x.png`);
+  document.querySelector("#weather-icon-two").setAttribute("alt", response.data.list[2].weather[0].description);
+
+  document.querySelector("#hour-three").innerHTML = formatHours(response.data.list[3].dt * 1000);
+  document.querySelector("#temp-three").innerHTML = Math.round(response.data.list[3].main.temp);
+  document.querySelector("#weather-icon-three").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.list[3].weather[0].icon}@2x.png`);
+  document.querySelector("#weather-icon-three").setAttribute("alt", response.data.list[3].weather[0].description);
+
+  document.querySelector("#hour-four").innerHTML = formatHours(response.data.list[4].dt * 1000);
+  document.querySelector("#temp-four").innerHTML = Math.round(response.data.list[4].main.temp);
+  document.querySelector("#weather-icon-four").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.list[4].weather[0].icon}@2x.png`);
+  document.querySelector("#weather-icon-four").setAttribute("alt", response.data.list[4].weather[0].description);
 }
 
 function showTemperature(response) {
@@ -80,6 +121,9 @@ function currentLocation(position) {
   let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
+  
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
 }
 function showCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(currentLocation);
